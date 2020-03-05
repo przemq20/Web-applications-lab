@@ -1,0 +1,106 @@
+<div *ngIf="!(authenticationService.userData | async)">
+    <app-notlogged></app-notlogged>
+</div>
+<div *ngIf="authenticationService.userData | async as user">
+    <div *ngFor="let user1 of users | async">
+        <div *ngIf="user1.uid==user.uid">
+            <div class="padding"></div>
+            <div *ngIf="!(user1.isAdmin == true)" class="permissions">
+                <h1> Nie masz uprawnień by zobaczyć tę stronę</h1>
+            </div>
+            <div *ngIf="(user1.isAdmin == true)">
+                <h1 style="text-align: center;">Hello Admin</h1> <br>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Nazwa przedmiotu</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" [(ngModel)]="name" name="nam" placeholder="Nazwa..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Ścieżka</label>
+                        </div>
+                        <div class="col-md-9">
+                            <select id="sciezka" name="scieżka" [(ngModel)]="sciezka">
+                                <option value="Ścieżka wytwarzania oprogramowania">Ścieżka wytwarzania oprogramowania
+                                </option>
+                                <option value="Ścieżka algorytmiczna">Ścieżka algorytmiczna</option>
+                                <option value="Ścieżka ogólna">Ścieżka ogólna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Liczba punktów ECTS</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="number" [(ngModel)]="ECTS" name="ECTS" placeholder="ECTS..">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Rodzaj zajęć</label>
+                        </div>
+                        <div class="col-md-9">
+                            <!-- <input type="text" [(ngModel)]="form" name="form" placeholder="form.."> -->
+                            <select id="form" name="form" [(ngModel)]="form">
+                                <option value="Wykład">Wykład</option>
+                                <option value="Ćwiczenia">Ćwiczenia</option>
+                                <option value="Laboratorium">Laboratorium</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Ikona</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="text" [(ngModel)]="icon" name="icon"
+                                placeholder="Wklej kod ikony z fontawesome.com">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Maksymalna ilość studentów</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="number" [(ngModel)]="maxstudents" name="maxstudents" placeholder="Ilość"
+                                min="0">
+                        </div>
+                    </div>
+                    <!-- <div class="row">
+                <div class="col-md-3">
+                    <label for="fname">Ocena kursu</label>
+                </div>
+                <div class="col-md-9">
+                    <input type="text" [(ngModel)]="mark" name="mark" placeholder="Zostaw puste" min="0" max="5">
+                </div> 
+        </div> -->
+                    <div class="row">
+                        <div class="col-md-3">
+                            <label for="fname">Semestr</label>
+                        </div>
+                        <div class="col-md-9">
+                            <input type="number" [(ngModel)]="semester" name="semester" placeholder="semestr.." min="1"
+                                max="8">
+                        </div>
+                    </div>
+                    <input class="btn btn-dark" type="submit" value="Dodaj zajęcia" (click)="addClass()">
+                </div>
+
+                <div *ngFor="let class of classes | async ">
+                    <!-- <a (click)="getClass(class.id)"> -->
+                    <a (click)="authenticationService.cCurrentUser()">
+                        {{class.data.name}} <i class="{{class.data.icon}}"></i>
+                        <!-- </a> -->
+                    </a>
+                    <br>
+                    <button (click)="deleteClass(class.id)">delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

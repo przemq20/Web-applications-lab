@@ -1,0 +1,91 @@
+<div *ngIf="!(authenticationService.userData | async)">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" routerLink="/"> <img src="../../assets/img/professor-3-512-white.png"
+                    alt="Logo"></a>
+            <h1>Oceń ćwiczenia</h1>
+            <button class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+                <span class="navbar-toggler-icon"></span>
+
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav nav nav-pills nav-stacked ml-auto ">
+
+                    <li class="nav-item">
+
+                        <a routerLink="/classes" class="nav-link underlineHover" id="link2" href="#section2"><button
+                                class="btn ">
+                                Zajęcia</button></a>
+                    </li>
+                    <!-- <li class="nav-item">
+                        <a routerLink="/profesors" class="nav-link underlineHover" id="link3" href="#section3"><button
+                                class="btn ">Prowadzący</button></a>
+                    </li> -->
+                    <!-- <li class="nav-item"><a class="nav-link underlineHover" routerLink="/"
+                        *ngIf="authenticationService.userData | async">Hello
+                        {{ (authenticationService.userData | async)?.email }}</a></li>
+                <a (click)="signOut()" *ngIf="!(authenticationService.userData | async)">Logout</a> -->
+
+
+                    <li class="nav-item">
+                        <a routerLink="/login" class="nav-link underlineHover"><button class="btn ">Zaloguj</button></a>
+                    </li>
+
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+<div *ngIf="authenticationService.userData | async as user">
+    <div *ngFor="let user1 of users | async">
+        <div *ngIf="user1.uid==user.uid">
+            <nav class="navbar navbar-expand-xl navbar-dark bg-dark sticky-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" routerLink="/"> <img src="../../assets/img/professor-3-512-white.png"
+                            alt="Logo"></a>
+                    <h1>Oceń ćwiczenia</h1>
+                    <button class="navbar-toggler" data-target="#navbarResponsive" data-toggle="collapse" type="button">
+                        <span class="navbar-toggler-icon"></span>
+
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarResponsive">
+                        <ul class="navbar-nav nav nav-pills nav-stacked ml-auto ">
+                            <li class="nav-item">
+                                <a routerLink="/classes" class="nav-link underlineHover" id="link2"
+                                    href="#section2"><button class="btn ">
+                                        Zajęcia</button></a>
+                            </li>
+                            <!-- <li class="nav-item">
+                                <a routerLink="/profesors" class="nav-link underlineHover" id="link3"
+                                    href="#section3"><button class="btn ">Prowadzący</button></a>
+                            </li> -->
+
+                            <li class="nav-item" *ngIf="user1.isAdmin==true">
+                                <a class="nav-link underlineHover" routerLink="/admin"> <button
+                                        class="btn">Panel</button></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link underlineHover" routerLink="/user"> <button
+                                        class="btn">{{user1.displayName}}</button></a>
+                            </li>
+
+                            <li class="nav-item" *ngIf="(authenticationService.userData | async)">
+                                <a class="nav-link underlineHover"> <button (click)="signOut()"
+                                        class="btn">Wyloguj</button></a>
+                            </li>
+
+                            <li class="nav-item" *ngIf="!(authenticationService.userData | async)">
+                                <a routerLink="/login" class="nav-link underlineHover"><button
+                                        class="btn ">Zaloguj</button></a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</div>

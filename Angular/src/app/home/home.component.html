@@ -1,0 +1,20 @@
+<div class="card text-center ">
+  <div class="card-header fadeInDown">
+    <h1>Witaj na przemq20.github.io</h1>
+  </div>
+  <div class="card-body ">
+    <h5 class="card-title fadeInDown">Cześć!</h5>
+    <p class="card-text fadeInDown">Jedyna strona dzięki której będziesz mógł wyrazić swoją opinię na temat zajęć w
+      których ostatnio uczesniczyłeś</p>
+    <div *ngIf="(authenticationService.userData | async)">
+      <a routerLink="/classes" href="#" class="btn btn-dark fadeInDown">Oceń zajęcia!</a>
+    </div>
+    <div *ngIf="!(authenticationService.userData | async)">
+      <a routerLink="/login" href="#" class="btn btn-dark fadeInDown">Zaloguj</a>
+    </div>
+  </div>
+  <!-- <div class="card-footer text-muted">
+    <p class="fadeInDown">2 days ago</p>
+    {{user}}
+  </div> -->
+</div>

@@ -1,0 +1,51 @@
+<!-- <div *ngIf="auth.user$ | async as user; else login">
+  {{ user | json }}
+  <hr>
+  <button class="button" (click)="auth.signOut()">Wyloguj</button>
+</div> -->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="padding"></div>
+    <div class="fadeIn first">
+      <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+    </div>
+    <div class="padding"></div>
+
+    <!-- Login Form -->
+    <h1 *ngIf="authenticationService.userData | async">Hello</h1>
+    <h1 class="email" *ngIf="authenticationService.userData | async">
+      {{ (authenticationService.userData | async)?.email }}
+    </h1>
+
+    <div *ngIf="!(authenticationService.userData | async)">
+      <input type="text" [(ngModel)]="email" placeholder="email">
+      <input type="password" [(ngModel)]="password" placeholder="password">
+      <input type="submit" class="fadeIn fourth" value="Zaloguj" (click)="signIn()">
+      <div class="social">
+        <a (click)="googleSignin()"><i class="fab fa-google"></i></a>
+        <a (click)="facebookLogin()"><i class="fab fa-facebook-f"></i></a>
+        <div class="padding"></div>
+
+      </div>
+    </div>
+
+    <div *ngIf=" authenticationService.userData | async" class="padding"></div>
+
+    <input type="submit" class="fadeIn fourth" value="Wyloguj" (click)="signOut()"
+      *ngIf="authenticationService.userData | async">
+    <div *ngIf="authenticationService.userData | async" class="padding"></div>
+    <div *ngIf="!(authenticationService.userData | async)">
+
+      <!-- Remind Passowrd -->
+      <div id="formFooter">
+        <a class="underlineHover" routerlink="">Zapomniałeś hasła?</a>
+        <hr>
+        <a routerLink="/register" class="nav-link underlineHover">Zarejestruj</a>
+      </div>
+    </div>
+  </div>
+</div>

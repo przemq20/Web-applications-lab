@@ -1,0 +1,94 @@
+<div *ngIf="!(authenticationService.userData | async) then A else B">
+    <!-- template will replace this div -->
+</div>
+
+<!-- User NOT logged in -->
+<ng-template #A>
+    <h3>Howdy, GUEST</h3>
+    <p>Login to get started...</p>
+
+    <button (click)="authenticationService.googleSignin()">
+        <i class="fa fa-google"></i> Connect Google
+    </button>
+
+</ng-template>
+
+<!-- User logged in -->
+<ng-template #B>
+    <!-- {{id}} -->
+
+    <div *ngIf="authenticationService.userData | async as user">
+
+        <div *ngFor="let user1 of users | async">
+            <div *ngIf="user1.uid==user.uid">
+
+                <div class="wrapper fadeInDown">
+                    <div id="formContent">
+                        <!-- Tabs Titles -->
+
+                        <!-- Icon -->
+                        <div class="padding"></div>
+                        <div class="fadeIn first photo">
+                            <div class="container">
+
+                                <img *ngIf="user1.photoURL==null" id="profile-img" class="profile-img-card image"
+                                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
+                                <img *ngIf="user1.photoURL!=null" id="profile-img" class="profile-img-card image"
+                                    [src]="user1.photoURL" />
+                                <button type="button" class="btn btn-dark middle" data-toggle="modal"
+                                    data-target="#myModal">
+                                    Zmień zdjęcie
+                                </button>
+                                <div class="modal fade" id="myModal" data-backdrop="false">
+                                    <div class="modal-dialog modal-dialog-centered">
+                                        <div class="modal-content">
+
+                                            <!-- Modal Header -->
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Zmień zdjęcie</h4>
+                                                <button type="button" class="close"
+                                                    data-dismiss="modal">&times;</button>
+                                            </div>
+
+                                            <!-- Modal body -->
+                                            <div class="modal-body">
+                                                <form>
+                                                    <input type="text" id="photoURL" class=" second" name="photoURL"
+                                                        placeholder="photoURL" [(ngModel)]="photoURL">
+
+                                                    <input type="submit" class=" fourth" value="Zmień zdjęcie"
+                                                        (click)="update(user1.uid, user1.isAdmin, user1.email, user1.displayName)">
+                                                </form>
+                                            </div>
+
+                                            <!-- Modal footer -->
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-dark"
+                                                    data-dismiss="modal">Zamknij</button>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="padding"></div>
+
+                        <!-- Login Form -->
+                        <h1>Hello</h1>
+                        <h1 class="displayName">{{user1.displayName}}</h1>
+                        <h1 class="email">
+                            {{ user1.email }}
+                        </h1>
+                        <div *ngIf=" authenticationService.userData | async" class="padding"></div>
+
+                        <input type="submit" class="fadeIn fourth" value="Wyloguj" (click)="signOut()"
+                            *ngIf="authenticationService.userData | async">
+                        <div *ngIf="authenticationService.userData | async" class="padding"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

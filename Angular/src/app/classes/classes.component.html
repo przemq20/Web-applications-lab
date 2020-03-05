@@ -1,0 +1,207 @@
+<div class="padding"></div>
+<div class="text-center1 fadeIn">
+    <h1>Spis wszystkich zajęć</h1>
+    <!-- <div class="search col-12 mx-auto">
+        <div class="padding"></div>
+        <input type="text" [(ngModel)]="name1" (input)="Search()" placeholder="Wyszukaj przedmiot" />
+    </div> -->
+</div>
+<div class="container">
+    <button type="button" class="btn btn-dark btn-lg" data-toggle="modal" data-target="#myModal">Filtruj</button>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Filtruj</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4">
+                            Semestr:
+                            <select [(ngModel)]="semestr" name="semestr">
+                                <option selected="selected" disabled>Semestr</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                            </select>
+
+                        </div>
+                        <div class="col-md-4">
+                            ECTS:
+                            <select [(ngModel)]="ECTSS" name="ectss">
+                                <option selected="selected" disabled>ECTS</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <p>Sortuj według:</p>
+                            <select [(ngModel)]="sortt" name="sort">
+                                <option selected="selected" disabled>Sortuj</option>
+                                <option value="0">Alfabetycznie</option>
+                                <option value="1">ECTS</option>
+                                <option value="2">Semestr</option>
+                                <option value="3">Ocena</option>
+                                <option value="4">Ilość głosów</option>
+                                <option value="5">Maksymalnej ilości studentów</option>
+                            </select>
+                            <input type="radio" [(ngModel)]="sorttype" name="sorttype" value="1" checked> Rosnąco<br>
+                            <input type="radio" [(ngModel)]="sorttype" name="sorttype" value="2"> Malejąco<br>
+                            <br>
+                            <button class="btn btn-dark" (click)="sort()">Sortuj</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-dark margin" (click)="semestrfilter()">Filruj</button>
+                    <button class="btn btn-dark margin" (click)="clear()">Wyczyść filtry</button>
+
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="padding"></div>
+
+<div *ngIf="!(authenticationService.userData | async)">
+
+    <div class="container-fluid content-row">
+
+        <div class="row equal abc">
+
+            <div *ngFor="let class of (class3) | async , let classid of class.id"
+                class=" col-sm-4 d-flex pb-3 card cardd">
+                <div class=" h-100 card card-block">
+                    <a [routerLink]="['/class', class.id]">
+                        <div class="card-header text-center">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5> {{class.name}}</h5>
+                                    {{class.sciezka}}
+                                </div>
+                            </div>
+                            <div class="padding"></div>
+                            <i class="{{class.icon}} icon"></i>
+                        </div>
+                    </a>
+                    <div class="card-body text-center">
+
+                        <div class="buttonOrNot">
+                            <button class="btn btn-dark btn-md active" routerLink="/login">Zaloguj się aby się
+                                zapisać</button>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col-md-12">
+                                <p class="card-text"> Zapisane:
+                                    {{class.signed.length}} /
+                                    {{class.maxstudents}} osób</p>
+                            </div>
+                            <div class="padding"></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <i class="fa fa-fw fa-heart"></i>
+                                <br>
+                                <h4>ECTS</h4>
+                                <h5>{{class.ECTS}}</h5>
+                            </div>
+                            <div class="col-md-6">
+                                <i class="fa fa-fw fa-star"></i>
+                                <br>
+                                <h4>Ocena</h4>
+                                <h5 *ngIf="class.mark!=0">{{class.mark | number : '1.2-2'}}</h5>
+                                <h5 *ngIf="class.mark==0">Brak oceny</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="authenticationService.userData | async as user">
+
+    <div *ngFor="let user1 of users | async">
+        <div *ngIf="user1.uid==user.uid">
+            <div class=" content-row">
+
+                <div class="row equal abc">
+
+                    <div *ngFor="let class of (class3) | async , let classid of class.id"
+                        class="col-lg-4 col-md-6 col-sm-12 card ">
+
+
+                        <div class=" h-100 card ">
+                            <a [routerLink]="['/class', class.id]">
+                                <div class="card-header text-center">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5> {{class.name}}</h5>
+                                            {{class.sciezka}}
+                                        </div>
+                                    </div>
+                                    <div class="padding"></div>
+                                    <i class="{{class.icon}} icon"></i>
+                                </div>
+                            </a>
+                            <div class="card-body text-center">
+
+                                <div class="buttonOrNot">
+                                    <button *ngIf="!check(user1.uid,classid)" class="btn btn-dark btn-md active"
+                                        (click)="sign(user1.uid,class.id,class.signed,class.maxstudents)">Zapisz
+                                        się</button>
+                                    <h5 *ngIf="check(user1.uid,classid)">Już jesteś zapisany</h5>
+                                </div>
+                                <div class="row text-center">
+                                    <div class="col-md-12">
+                                        <p class="card-text"> Zapisane:
+                                            {{class.signed.length}} /
+                                            {{class.maxstudents}} osób</p>
+                                    </div>
+                                    <div class="padding"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <i class="fa fa-fw fa-heart"></i>
+                                        <br>
+                                        <h4>ECTS</h4>
+                                        <h5>{{class.ECTS}}</h5>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <i class="fa fa-fw fa-star"></i>
+                                        <br>
+                                        <h4>Ocena</h4>
+                                        <h5 *ngIf="class.mark!=0">{{class.mark | number : '1.2-2'}}</h5>
+                                        <h5 *ngIf="class.mark==0">Brak oceny</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div style="clear: both;"></div>

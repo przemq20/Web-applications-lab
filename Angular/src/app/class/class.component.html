@@ -1,0 +1,115 @@
+<div *ngIf="!(authenticationService.userData | async)">
+    <app-notlogged></app-notlogged>
+</div>
+
+<div *ngIf="authenticationService.userData | async as user">
+    <div *ngFor="let user1 of users | async">
+        <div *ngIf="user1.uid==user.uid">
+            <div *ngIf="!check(user1.uid,class)" class="text-center">
+                Nie jesteś zapisany na ten kurs <br>
+                <button class="btn btn-dark"
+                    (click)="sign(user1.uid,class.id,class.signed, class.maxstudents)">Zapisz</button>
+            </div>
+
+            <div *ngIf="check(user1.uid,class)">
+                <div class="padding"></div>
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header ">
+                            <div class="">
+                                <h1 class="card-title">{{class.name}}</h1>
+                                <p>{{class.sciezka}}</p>
+                            </div>
+                            <hr>
+                            <p>Semestr {{class.semester}}</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="col-lg-8 rating">
+                                <div class="card grey fadeIn">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam malesuada
+                                        maximus
+                                        dignissim.
+                                        Etiam eget lorem molestie, ornare ex sit amet, dignissim turpis. Aliquam
+                                        consectetur, mi
+                                        at
+                                        tempus aliquam, justo lorem feugiat enim, quis imperdiet metus tortor at nunc.
+                                        Sed
+                                        facilisis,
+                                        diam nec convallis facilisis, leo est tempor risus, dapibus egestas lorem purus
+                                        id
+                                        lectus.
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 rating margin1">
+                                <div class="card grey fadeIn center">
+                                    <h5>Ocena:</h5>
+                                    <div class="ocena ">
+                                        <h2 *ngIf="class.mark==0">Brak oceny</h2>
+                                        <h2 *ngIf="class.mark!=0">{{class.mark| number : '1.2-2'}}<i
+                                                class="fas fa-star"></i></h2>
+                                        <h3>Liczba głosów: {{class.voteCount}}</h3>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container" style="clear: both;">
+                                <div class="rating1 fadeIn">
+                                    <hr />
+
+                                    <h5>Twoja ocena:</h5>
+                                </div>
+                                <div *ngIf="checkVote(user1.uid,class)" class="center">
+                                    Oddałeś już głos
+                                </div>
+                                <div *ngIf="!checkVote(user1.uid,class)" class="center">
+                                    <div class="rating">
+                                        <input type="radio" id="star5" name="rating" value="5" /><label class="full"
+                                            for="star5" title="5"
+                                            (click)="updateVote(5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star4half" name="rating" value="4 and a half" /><label
+                                            class="half" for="star4half" title="4.5"
+                                            (click)="updateVote(4.5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star4" name="rating" value="4"
+                                            (click)="updateVote(4, class.mark, user1.uid, class.id, class.voted)" /><label
+                                            class="full" for="star4" title="4 "></label>
+                                        <input type="radio" id="star3half" name="rating" value="3 and a half" /><label
+                                            class="half" for="star3half" title=" 3.5 "
+                                            (click)="updateVote(3.5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star3" name="rating" value="3" /><label class="full"
+                                            for="star3" title="3 "
+                                            (click)="updateVote(3, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star2half" name="rating" value="2 and a half" /><label
+                                            class="half" for="star2half" title="2.5"
+                                            (click)="updateVote(2.5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star2" name="rating" value="2" /><label class="full"
+                                            for="star2" title="2 "
+                                            (click)="updateVote(2, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star1half" name="rating" value="1 and a half" /><label
+                                            class="half" for="star1half" title="1.5"
+                                            (click)="updateVote(1.5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="star1" name="rating" value="1" /><label class="full"
+                                            for="star1" title="1"
+                                            (click)="updateVote(1, class.mark, user1.uid, class.id, class.voted)"></label>
+                                        <input type="radio" id="starhalf" name="rating" value="half" /><label
+                                            class="half" for="starhalf" title="0.5"
+                                            (click)="updateVote(0.5, class.mark, user1.uid, class.id, class.voted)"></label>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+
+                            <hr />
+                            <div class="card-stats">
+                                <br>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>

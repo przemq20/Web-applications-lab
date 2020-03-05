@@ -1,0 +1,71 @@
+
+.padding {
+    padding: 2rem;
+}
+
+.navbar {
+    padding: .8rem;
+
+}
+
+.navbar-nav li {
+    padding-right: 20px;
+
+}
+
+.nav-link {
+    font-size: 1.1em;
+}
+
+.navbar-brand img {
+    height: 3rem;
+    width: 3rem;
+}
+
+.nav-pills > li > a.active {
+    background-color: white !important;
+}
+
+.nav-link {
+    color: white !important;
+}
+
+.nav-link.active {
+    color: black !important;
+}
+
+  .navbar .navbar-collapse {
+        text-align: center;
+    }
+
+.img-fluid {
+    border-radius: 40px;
+
+}
+
+h1 {
+    color: white;
+}
+
+.underlineHover:after {
+    display: block;
+    left: 0;
+    bottom: -10px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    content: "";
+    transition: width 0.2s;
+  }
+  
+  .underlineHover:hover {
+    color: white;
+  }
+  
+  .underlineHover:hover:after{
+    width: 100%;
+  }
+
+  .btn {
+      color:white;
+  }

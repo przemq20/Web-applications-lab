@@ -1,0 +1,16 @@
+<div *ngIf="!(authenticationService.userData | async)">
+    <div class="card text-center ">
+        <div class="card-header ">
+            <h1>Witaj na Ocenprofesora.pl</h1>
+        </div>
+        <div class="card-body ">
+            <h5 class="card-title fadeInDown">Nie jesteś zalogowany</h5>
+
+            <a routerLink="/login" href="#" class="btn btn-dark fadeInDown">Zaloguj</a>
+        </div>
+        <div class="card-footer text-muted">
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,164 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+
+.card-header {
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color: black
+}
+a :hover {
+    opacity: 80%;
+}
+.center {
+    text-align: center;
+    padding: 1em;
+}
+
+  h1[alt="Simple"] {color: white;}
+ a[href], a[href]:hover {color: grey; font-size: 0.5em; text-decoration: none}
+
+ .card-body img {
+    border-radius: 1em;
+ }
+
+ .profesor {
+    color: #ff4444;
+    ;
+}
+
+.Phd {
+    color: #ffbb33;
+
+}
+
+.master {
+color: #33b5e5;
+}
+
+.engineer {
+color: #00C851;
+
+}
+
+fieldset, label { margin: 0; padding: 0; }
+
+/****** Style Star Rating Widget *****/
+
+.rating { 
+  border: none;
+  float: left;
+  margin: auto;
+      display: block;
+
+}
+.fa-star {
+    color: #FFD700;
+}
+.center {
+      display: flex;
+  justify-content: center;
+
+}
+
+.rating2 { 
+  border: none;
+  float: left;
+    display: block;
+margin: auto;
+}
+
+.rating > input { display: none; } 
+.rating > label:before { 
+  margin: 5px;
+  font-size: 1.25em;
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f005";
+}
+
+.rating > .half:before { 
+  content: "\f089";
+  position: absolute;
+}
+
+.rating > label { 
+  color: #ddd; 
+ float: right; 
+}
+
+/***** CSS Magic to Highlight Stars on Hover *****/
+
+.rating > input:checked ~ label, /* show gold star when clicked */
+.rating:not(:checked) > label:hover, /* hover current star */
+.rating:not(:checked) > label:hover ~ label { color: #FFD700;  } /* hover previous stars in list */
+
+.rating > input:checked + label:hover, /* hover current star when changing rating */
+.rating > input:checked ~ label:hover,
+.rating > label:hover ~ input:checked ~ label, /* lighten current selection */
+.rating > input:checked ~ label:hover ~ label { color: #FFED85;  } 
+.rating1 {
+    padding-top: 1rem ;
+    text-align: center;
+    margin: auto;
+}
+
+.photo {
+    width: 45%; 
+    float: left;
+     height: auto;
+}
+.photo img {
+    
+     height: 10vw;
+}
+.odstep {
+    width: 10%;
+    float: left;
+}
+
+.goodteacher {
+    color: #00C851;
+
+}
+.badteacher {
+    color: #ff4444;
+
+}
+
+.card-body {
+ min-height: 10vw;   
+
+}
+.card {
+    min-height: 12vw;
+}
+
+.grey {
+    background-color: #eceff1;
+    padding-top: 20px;
+
+}
+
+.card-title {
+    font-size: 3vw;
+}
+
+.card-category {
+    text-align: center;
+}
+i {
+    padding: 10%;
+}
+.container1 {
+      display: table-cell;
+  vertical-align: middle;
+}
+
+@media screen and (max-width: 992px) {
+    .margin1 {
+        margin-top: 1rem;
+    }
+}
