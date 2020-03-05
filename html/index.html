@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+    <meta charset="utf-8">
+    <title>Kulinaria</title>
+    <link rel="shortcut icon" href="img/pic.png">
+    <meta name="description"
+          content="Kuchciki.pl powstały z myślą o wszystkich miłośnikach dobrej kuchni. Każdego dnia podsuniemy Ci sposób na smaczny i oryginalny posiłek!">
+    <meta name="keywords" content="kuchnia, przepisy, obiad">
+    <meta name="author" content="Przemysław Lechowicz">
+
+    <!-- Bootstrap CSS -->
+    <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+<!--
+<header>
+    <div id="navigation">
+        <h1 class="logo">Kuchciki.pl</h1>
+
+        <nav id="topnav">
+            <ul class="menu">
+                <li><a href="#down">Kategorie</a></li>
+                <li><a href="#newest">Najnowsze przepisy</a></li>
+                <li><a href="#send">Prześlij przepis</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+
+            </ul>
+
+        </nav>
+    </div>
+</header>
+<div style="clear:both"></div>
+
+<div id="down">
+</div>
+-->
+
+
+<!--<nav class="navbar navbar-expand-xl navbar-dark  fixed-top navbar-custom ">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#"><h1 class="logo">Kuchciki.pl</h1></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav nav nav-pills nav-stacked ml-auto ">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#down">Kategorie</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="link2" href="#newest">Najnowsze przepisy</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="link3" href="#send">Prześlij przepis</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="link4" href="#contact">Kontakt</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>-->
+
+<nav>
+    <div class="topnav" id="myTopnav">
+        <a href="#down" class="active"><strong>Kuchciki.pl</strong></a>
+        <div class="right">
+            <a href="#newest">Najnowsze przepisy</a>
+            <a href="#send">Prześlij przepis</a>
+            <a href="#contact">Kontakt</a>
+        </div>
+        <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+        </a>
+    </div>
+</nav>
+<main>
+    <article>
+        <section>
+
+            <div id="down"></div>
+
+            <div class="categories">
+
+                <header>
+
+                    <h1>Witaj w mojej kuchni!</h1>
+                    <p>Każdy lubi zjeść coś pysznego. Ale nie każdy twierdzi, że umie te pyszne rzeczy przyrządzić. Na
+                        tej stronie udowodnię, że nie jest to nic trudnego i postaram się sprawić, aby każda rzecz w
+                        kuchni była prosta i przyjemna. </p>
+
+                </header>
+
+                <div class="cat">
+
+                    <figure>
+                        <a href="#"><img src="img/zupa-krem.jpg" alt="Zupa krem"></a>
+                        <figcaption>Zupy kremy</figcaption>
+                    </figure>
+
+                </div>
+                <div class="cat">
+                    <figure>
+					
+                        <a href="#"><img src="img/jabl.jpg" alt="Ciasto z jabłkami"></a>
+                        <figcaption>Ciasta z jabłkami</figcaption>
+                    </figure>
+                </div>
+                <div class="cat">
+                    <figure>
+                        <a href="#"><img src="img/dynia.jpg" alt="Dania z dynią"></a>
+                        <figcaption>Dania z dynią</figcaption>
+                    </figure>
+                </div>
+                <div class="cat">
+                    <figure>
+                        <a href="#"><img src="img/march.jpg" alt="Ciasta marchewkowe"></a>
+                        <figcaption>Ciasta marchewkowe</figcaption>
+                    </figure>
+                </div>
+                <div class="cat">
+                    <figure>
+                        <a href="#"><img src="img/kurczak.jpg" alt="Dania z kurczakiem"></a>
+                        <figcaption>Dania z kurczakiem</figcaption>
+                    </figure>
+                </div>
+                <div class="cat">
+                    <figure>
+                        <a href="#"><img src="img/kotlet.jpg" alt="Kuchnia polska"></a>
+                        <figcaption>Kuchnia polska</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+        <div id="newest"></div>
+
+        <div class="padding sm-pad"></div>
+        <section id="najnowsze">
+            <div class="entries">
+                <header id="przepisy">
+
+                    <h1>Najnowsze przepisy</h1>
+                    <p>Poniżej znajdziesz trzy ostatnio opublikowane przepisy. Nowości publikowane są także na Facebooku
+                        i Twitterze.</p>
+                </header>
+
+                <div class="entry">
+                    <a href="#">
+                        <article>
+                            <div class="entryimg">
+                                <img src="img/zupa.jpg" alt="Zupa z chorizo">
+                                <br>
+                            </div>
+
+                            <div class="entrytxt">
+                                <h2>Hiszpańska zupa z czerwoną fasolą, soczewicą i kiełbasą chorizo</h2>
+                                <p>Pyszną i pełną smaku hiszpańską zupę z soczewicy z kiełbasą chorizo najlepiej podawać
+                                    ze
+                                    świeżym, chrupiącym pieczywem. Zamiast suchej soczewicy można użyć tej z puszki -
+                                    zupa
+                                    ugotuje się wtedy jeszcze szybciej.</p>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+
+                <div class="entry">
+                    <a href="#">
+                        <article>
+                            <div class="entryimg">
+                                <img src="img/zupa_kurkowa_z_lososiem_00.jpg" alt="Zupa kurkowa z łososiem">
+                                <br>
+                            </div>
+                            <div class="entrytxt">
+                                <h2>Zupa kurkowa z łososiem</h2>
+                                <p>Połączenie grzybów z rybami (lub owocami morza) — na przykład borowików z krewetkami
+                                    czy
+                                    właśnie kurek z łososiem — to często stosowana w kuchni kombinacja. Zapewne znacie
+                                    przynajmniej kilka takich przepisów gdzie sprawdziło się to wyśmienicie. </p>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+                <div class="entry">
+                    <a href="#">
+                        <article>
+                            <div class="entryimg">
+                                <img src="img/ciasto_kruche_z_malinami_i_pianka_1.jpg"
+                                     alt="Kruche ciasto z malinami i pianką">
+                                <br>
+                            </div>
+                            <div class="entrytxt">
+                                <h2>Kruche ciasto z malinami i pianką</h2>
+                                <p>Kruche ciasto z lekką, rewelacyjną pianką, która jest lżejsza niż ptasie mleczko, a
+                                    maliny (lub jeżyny, jagody, borówki amerykańskie) w niej zatopione smakują wybornie.
+                                    Pozostaję od dziś fanem tego ciasta. I jak nigdy jestem pewny, że i Wam
+                                    posmakuje </p>
+                            </div>
+                        </article>
+                    </a>
+                </div>
+            </div>
+        </section>
+        <div id="send">
+            <div class="padding"></div>
+            <section id="dodaj">
+                <header>
+                    <h1>Dodaj swój przepis</h1>
+                    <p>Posiadasz w swoim zeszycie przepis na danie, które bardzo lubisz i chciałbyś się nim ze
+                        wszystkimi podzielić? Może jest to Twój przepis, Twojej mamy, babci? Jeśli tak, to naciśnij
+                        przycisk poniżej!</p>
+                </header>
+                <a href="#" class="bluebutton">Prześlij swój przepis</a>
+            </section>
+        </div>
+    </article>
+</main>
+<div id="contact">
+    <h1>Kontakt</h1>
+    <p>Potrzebujesz pomocy? Spróbuj zadać pytanie przez jedno z poniższych mediów społecznościowych.</p>
+</div>
+<div class="socials">
+    <div class="socialdivs">
+        <a href="#">
+            <div class="fb">
+                <i class="fab fa-facebook-square"></i>
+            </div>
+        </a>
+        <a href="#">
+            <div class="yt">
+                <i class="fab fa-youtube"></i>
+            </div>
+        </a>
+        <a href="#">
+            <div class="tw">
+                <i class="fab fa-twitter-square"></i>
+            </div>
+        </a>
+        <a href="#">
+            <div class="gplus">
+                <i class="fab fa-google-plus-square"></i>
+            </div>
+        </a>
+        <div style="clear:both"></div>
+    </div>
+</div>
+<div class="padding"></div>
+<footer>
+    <div class="info">
+        <div class="link"><a href="#">Regulamin</a></div>
+        <div class="link"><a href="#">Polityka Prywatności</a></div>
+        <div class="link"><a href="#">Polityka plików cookies</a></div>
+        <div class="link"><a href="#">Mapa witryny</a></div>
+        <br>
+        <p>Dziękuję za wizytę!</p>
+    </div>
+
+</footer>
+
+<script>
+    function myFunction() {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
